@@ -1,5 +1,35 @@
 # wagmi
 
+## 0.6.0
+
+### Minor Changes
+
+- [#727](https://github.com/wagmi-dev/wagmi/pull/727) [`ac3b9b8`](https://github.com/wagmi-dev/wagmi/commit/ac3b9b87f80cb45b65d003f09d916d7d1427a62e) Thanks [@tmm](https://github.com/tmm)! - **Breaking**: Moved the `pollingInterval` config option from the chain provider config to `configureChains` config.
+
+  ```diff
+  const { chains, provider } = configureChains(
+    [chain.mainnet, chain.polygon],
+    [
+  -   alchemyProvider({ alchemyId, pollingInterval: 5000 }),
+  -   publicProvider({ pollingInterval: 5000 })
+  +   alchemyProvider({ alchemyId }),
+  +   publicProvider()
+    ],
+  + { pollingInterval: 5000 }
+  )
+  ```
+
+### Patch Changes
+
+- [#733](https://github.com/wagmi-dev/wagmi/pull/733) [`6232487`](https://github.com/wagmi-dev/wagmi/commit/623248703bc728d539e28bf8a89b8ab22f0a5703) Thanks [@tmm](https://github.com/tmm)! - Add mock connector entrypoint
+
+* [#734](https://github.com/wagmi-dev/wagmi/pull/734) [`7c2fa04`](https://github.com/wagmi-dev/wagmi/commit/7c2fa04e9b695840d6fa088e1f8d069f3c916551) Thanks [@jxom](https://github.com/jxom)! - Fix issue where `useProvider` & `useWebSocketProvider` would not update when `chainId` config changes
+
+- [#739](https://github.com/wagmi-dev/wagmi/pull/739) [`c2295a5`](https://github.com/wagmi-dev/wagmi/commit/c2295a56cc86d02cc6602e2b4557b8ab9a091a3f) Thanks [@tmm](https://github.com/tmm)! - Fix balance formatting for tokens that do not have 18 decimals.
+
+- Updated dependencies [[`c2295a5`](https://github.com/wagmi-dev/wagmi/commit/c2295a56cc86d02cc6602e2b4557b8ab9a091a3f), [`ac3b9b8`](https://github.com/wagmi-dev/wagmi/commit/ac3b9b87f80cb45b65d003f09d916d7d1427a62e)]:
+  - @wagmi/core@0.5.0
+
 ## 0.5.11
 
 ### Patch Changes
